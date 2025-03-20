@@ -1,0 +1,10 @@
+prefix=/ucrt64
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: rtaudio
+Description: RtAudio - a set of C++ classes that provide a common API for realtime audio input/output
+Version: 6.0.1
+Libs: -L${libdir} -lrtaudio
+Libs.private: -pthread -ldsound -lmfplat -lmfuuid -lksuser -lwmcodecdspuuid -lole32 -lwinmm
+Cflags: -I${includedir}/rtaudio

@@ -1,0 +1,670 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>libsoup Client Basics: libsoup Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.2">
+<link rel="home" href="index.html" title="libsoup Reference Manual">
+<link rel="up" href="ch01.html" title="Tutorial">
+<link rel="prev" href="libsoup-build-howto.html" title="Compiling with libsoup">
+<link rel="next" href="libsoup-request-howto.html" title="libsoup Client SoupRequest API">
+<meta name="generator" content="GTK-Doc V1.33.1 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts"></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="libsoup-build-howto.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="libsoup-request-howto.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry">
+<a name="libsoup-client-howto"></a><div class="titlepage"></div>
+
+
+<div class="refnamediv">
+<h2><span class="refentrytitle">libsoup Client Basics</span></h2>
+<p>
+libsoup Client Basics — Client-side tutorial
+</p>
+</div>
+
+<div class="refsect2">
+<a name="id-1.2.3.3"></a>
+<p>
+This section explains how to use <span class="application">libsoup</span> as
+an HTTP client using several new APIs introduced in version 2.42. If
+you want to be compatible with older versions of
+<span class="application">libsoup</span>, consult the documentation for that
+version.
+</p>
+</div>
+
+<div class="refsect2">
+<a name="id-1.2.3.4"></a><h3>Creating a <span class="type">SoupSession</span>
+</h3>
+
+
+<p>
+The first step in using the client API is to create a <a class="link" href="SoupSession.html" title="SoupSession"><span class="type">SoupSession</span></a>. The session object
+encapsulates all of the state that <span class="application">libsoup</span>
+is keeping on behalf of your program; cached HTTP connections,
+authentication information, etc.
+</p>
+
+<p>
+When you create the session with <a class="link" href="SoupSession.html#soup-session-new-with-options" title="soup_session_new_with_options ()"><code class="function">soup_session_new_with_options</code></a>,
+you can specify various additional options:
+</p>
+
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><a class="link" href="SoupSession.html#SOUP-SESSION-MAX-CONNS:CAPS" title="SOUP_SESSION_MAX_CONNS"><code class="literal">SOUP_SESSION_MAX_CONNS</code></a></span></p></td>
+<td><p>
+	    Allows you to set the maximum total number of connections
+	    the session will have open at one time. (Once it reaches
+	    this limit, it will either close idle connections, or
+	    wait for existing connections to free up before starting
+	    new requests.) The default value is 10.
+	</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="SoupSession.html#SOUP-SESSION-MAX-CONNS-PER-HOST:CAPS" title="SOUP_SESSION_MAX_CONNS_PER_HOST"><code class="literal">SOUP_SESSION_MAX_CONNS_PER_HOST</code></a></span></p></td>
+<td><p>
+	    Allows you to set the maximum total number of connections
+	    the session will have open <span class="emphasis"><em>to a single
+	    host</em></span> at one time. The default value is 2.
+	</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="SoupSession.html#SOUP-SESSION-USER-AGENT:CAPS" title="SOUP_SESSION_USER_AGENT"><code class="literal">SOUP_SESSION_USER_AGENT</code></a></span></p></td>
+<td><p>
+	    Allows you to set a User-Agent string that will be sent
+	    on all outgoing requests.
+	</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="SoupSession.html#SOUP-SESSION-ACCEPT-LANGUAGE:CAPS" title="SOUP_SESSION_ACCEPT_LANGUAGE"><code class="literal">SOUP_SESSION_ACCEPT_LANGUAGE</code></a>
+	and <a class="link" href="SoupSession.html#SOUP-SESSION-ACCEPT-LANGUAGE-AUTO:CAPS" title="SOUP_SESSION_ACCEPT_LANGUAGE_AUTO"><code class="literal">SOUP_SESSION_ACCEPT_LANGUAGE_AUTO</code></a></span></p></td>
+<td><p>
+	    Allow you to set an Accept-Language header on all outgoing
+	    requests. <code class="literal">SOUP_SESSION_ACCEPT_LANGUAGE</code>
+	    takes a list of language tags to use, while
+	    <code class="literal">SOUP_SESSION_ACCEPT_LANGUAGE_AUTO</code>
+	    automatically generates the list from the user's locale
+	    settings.
+	</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="SoupSession.html#SOUP-SESSION-HTTP-ALIASES:CAPS" title="SOUP_SESSION_HTTP_ALIASES"><code class="literal">SOUP_SESSION_HTTP_ALIASES</code></a>
+	and <a class="link" href="SoupSession.html#SOUP-SESSION-HTTPS-ALIASES:CAPS" title="SOUP_SESSION_HTTPS_ALIASES"><code class="literal">SOUP_SESSION_HTTPS_ALIASES</code></a></span></p></td>
+<td><p>
+	    Allow you to tell the session to recognize additional URI
+	    schemes as aliases for "<code class="literal">http</code>" or
+	    <code class="literal">https</code>. You can set this if you are
+	    using URIs with schemes like "<code class="literal">dav</code>" or
+	    "<code class="literal">webcal</code>" (and in particular, you need
+	    to set this if the server you are talking to might return
+	    redirects with such a scheme).
+	</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="SoupSession.html#SOUP-SESSION-PROXY-RESOLVER:CAPS" title="SOUP_SESSION_PROXY_RESOLVER"><code class="literal">SOUP_SESSION_PROXY_RESOLVER</code></a> and <a class="link" href="SoupSession.html#SOUP-SESSION-PROXY-URI:CAPS" title="SOUP_SESSION_PROXY_URI"><code class="literal">SOUP_SESSION_PROXY_URI</code></a></span></p></td>
+<td>
+	    <p>
+		<a class="link" href="SoupSession.html#SOUP-SESSION-PROXY-RESOLVER:CAPS" title="SOUP_SESSION_PROXY_RESOLVER"><code class="literal">SOUP_SESSION_PROXY_RESOLVER</code></a>
+		specifies a <a class="link" href=""><span class="type">GProxyResolver</span></a>
+		to use to determine the HTTP proxies to use. By default,
+		this is set to the resolver returned by <a class="link" href=""><code class="function">g_proxy_resolver_get_default</code></a>,
+		so you do not need to set it yourself.
+	    </p>
+	    <p>
+		Alternatively, if you want all requests to go through a
+		single proxy, you can set <a class="link" href="SoupSession.html#SOUP-SESSION-PROXY-URI:CAPS" title="SOUP_SESSION_PROXY_URI"><code class="literal">SOUP_SESSION_PROXY_URI</code></a>.
+	    </p>
+	</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="SoupSession.html#SOUP-SESSION-ADD-FEATURE:CAPS" title="SOUP_SESSION_ADD_FEATURE"><code class="literal">SOUP_SESSION_ADD_FEATURE</code></a> and <a class="link" href="SoupSession.html#SOUP-SESSION-ADD-FEATURE-BY-TYPE:CAPS" title="SOUP_SESSION_ADD_FEATURE_BY_TYPE"><code class="literal">SOUP_SESSION_ADD_FEATURE_BY_TYPE</code></a></span></p></td>
+<td><p>
+	    These allow you to specify <a class="link" href="SoupSessionFeature.html" title="SoupSessionFeature"><span class="type">SoupSessionFeature</span></a>s
+	    (discussed <a class="link" href="libsoup-client-howto.html#session-features" title="Session features">below</a>)
+	    to add at construct-time.
+	</p></td>
+</tr>
+</tbody>
+</table></div>
+
+<p>
+Other properties are also available; see the <a class="link" href="SoupSession.html" title="SoupSession"><span class="type">SoupSession</span></a> documentation for
+more details.
+</p>
+
+<p>
+If you don't need to specify any options, you can just use <a class="link" href="SoupSession.html#soup-session-new" title="soup_session_new ()"><code class="function">soup_session_new</code></a>,
+which takes no arguments.
+</p>
+
+</div>
+
+<div class="refsect2">
+<a name="session-features"></a><h3>Session features</h3>
+
+
+<p>
+Additional session functionality is provided as <a class="link" href="SoupSessionFeature.html" title="SoupSessionFeature"><span class="type">SoupSessionFeature</span></a>s,
+which can be added to a session, via the <a class="link" href="SoupSession.html#SOUP-SESSION-ADD-FEATURE:CAPS" title="SOUP_SESSION_ADD_FEATURE"><code class="literal">SOUP_SESSION_ADD_FEATURE</code></a>
+and <a class="link" href="SoupSession.html#SOUP-SESSION-ADD-FEATURE-BY-TYPE:CAPS" title="SOUP_SESSION_ADD_FEATURE_BY_TYPE"><code class="literal">SOUP_SESSION_ADD_FEATURE_BY_TYPE</code></a>
+options at session-construction-time, or afterward via the <a class="link" href="SoupSession.html#soup-session-add-feature" title="soup_session_add_feature ()"><code class="function">soup_session_add_feature</code></a>
+and <a class="link" href="SoupSession.html#soup-session-add-feature-by-type" title="soup_session_add_feature_by_type ()"><code class="function">soup_session_add_feature_by_type</code></a>
+functions.
+</p>
+
+<p>
+A <a class="link" href="SoupContentDecoder.html" title="SoupContentDecoder"><span class="type">SoupContentDecoder</span></a> is
+added for you automatically. This advertises to servers that the
+client supports compression, and automatically decompresses compressed
+responses.
+</p>
+
+<p>
+Some other available features that you can add include:
+</p>
+
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><a class="link" href="SoupLogger.html" title="SoupLogger"><span class="type">SoupLogger</span></a></span></p></td>
+<td><p>
+	    A debugging aid, which logs all of libsoup's HTTP traffic
+	    to <code class="literal">stdout</code> (or another place you specify).
+	</p></td>
+</tr>
+<tr>
+<td><p><span class="term">
+	    <a class="link" href="SoupCookieJar.html" title="SoupCookieJar"><span class="type">SoupCookieJar</span></a>,
+	    <a class="link" href="SoupCookieJarText.html" title="SoupCookieJarText"><span class="type">SoupCookieJarText</span></a>,
+	    and <a class="link" href="SoupCookieJarDB.html" title="SoupCookieJarDB"><span class="type">SoupCookieJarDB</span></a>
+	</span></p></td>
+<td><p>
+	    Support for HTTP cookies. <span class="type">SoupCookieJar</span>
+	    provides non-persistent cookie storage, while
+	    <span class="type">SoupCookieJarText</span> uses a text file to keep
+	    track of cookies between sessions, and
+	    <span class="type">SoupCookieJarDB</span> uses a
+	    <span class="application">SQLite</span> database.
+	</p></td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="SoupContentSniffer.html" title="SoupContentSniffer"><span class="type">SoupContentSniffer</span></a></span></p></td>
+<td><p>
+	    Uses the HTML5 sniffing rules to attempt to
+	    determine the Content-Type of a response when the
+	    server does not identify the Content-Type, or appears to
+	    have provided an incorrect one. 
+	</p></td>
+</tr>
+</tbody>
+</table></div>
+
+<p>
+Use the "add_feature_by_type" property/function to add features that
+don't require any configuration (such as <a class="link" href="SoupContentSniffer.html" title="SoupContentSniffer"><span class="type">SoupContentSniffer</span></a>),
+and the "add_feature" property/function to add features that must be
+constructed first (such as <a class="link" href="SoupLogger.html" title="SoupLogger"><span class="type">SoupLogger</span></a>). For example, an
+application might do something like the following:
+</p>
+
+<div class="informalexample">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="n">session</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">soup_session_new_with_options</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">	</span><span class="n">SOUP_SESSION_ADD_FEATURE_BY_TYPE</span><span class="p">,</span><span class="w"> </span><span class="n">SOUP_TYPE_CONTENT_SNIFFER</span><span class="p">,</span><span class="w"></span>
+<span class="w">	</span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">debug_level</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">SoupLogger</span><span class="w"> </span><span class="o">*</span><span class="n">logger</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">	</span><span class="n">logger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">soup_logger_new</span><span class="w"> </span><span class="p">(</span><span class="n">debug_level</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="n">soup_session_add_feature</span><span class="w"> </span><span class="p">(</span><span class="n">session</span><span class="p">,</span><span class="w"> </span><span class="n">SOUP_SESSION_FEATURE</span><span class="w"> </span><span class="p">(</span><span class="n">logger</span><span class="p">));</span><span class="w"></span>
+<span class="w">	</span><span class="n">g_object_unref</span><span class="w"> </span><span class="p">(</span><span class="n">logger</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+</div>
+
+<div class="refsect2">
+<a name="id-1.2.3.6"></a><h3>Creating and Sending SoupMessages</h3>
+
+
+<p>
+Once you have a session, you send HTTP requests using <a class="link" href="SoupMessage.html" title="SoupMessage"><span class="type">SoupMessage</span></a>. In the simplest
+case, you only need to create the message and it's ready to send:
+</p>
+
+<div class="informalexample">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1
+2
+3</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="n">SoupMessage</span><span class="w"> </span><span class="o">*</span><span class="n">msg</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">soup_message_new</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;GET&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;http://example.com/&quot;</span><span class="p">);</span><span class="w"></span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<p>
+In more complicated cases, you can use various <a class="link" href="SoupMessage.html" title="SoupMessage">SoupMessage</a>, <a class="link" href="SoupMessageHeaders.html" title="SoupMessageHeaders">SoupMessageHeaders</a>, and <a class="link" href="SoupMessageBody.html" title="SoupMessageBody">SoupMessageBody</a> methods to set the
+request headers and body of the message:
+</p>
+
+<div class="informalexample">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1
+2
+3
+4
+5
+6</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="n">SoupMessage</span><span class="w"> </span><span class="o">*</span><span class="n">msg</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">soup_message_new</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;POST&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;http://example.com/form.cgi&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="n">soup_message_set_request</span><span class="w"> </span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;application/x-www-form-urlencoded&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                          </span><span class="n">SOUP_MEMORY_COPY</span><span class="p">,</span><span class="w"> </span><span class="n">formdata</span><span class="p">,</span><span class="w"> </span><span class="n">strlen</span><span class="w"> </span><span class="p">(</span><span class="n">formdata</span><span class="p">));</span><span class="w"></span>
+<span class="n">soup_message_headers_append</span><span class="w"> </span><span class="p">(</span><span class="n">msg</span><span class="o">-&gt;</span><span class="n">request_headers</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Referer&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">referring_url</span><span class="p">);</span><span class="w"></span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<p>
+(Although this is a bad example, because
+<span class="application">libsoup</span> actually has convenience methods
+for dealing with <a class="link" href="libsoup-2.4-HTML-Form-Support.html" title="HTML Form Support">HTML
+forms</a>, as well as <a class="link" href="libsoup-2.4-XMLRPC-Support.html" title="XMLRPC Support">XML-RPC</a>.)
+</p>
+
+<p>
+You can also use <a class="link" href="SoupMessage.html#soup-message-set-flags" title="soup_message_set_flags ()"><code class="function">soup_message_set_flags</code></a>
+to change some default behaviors. For example, by default,
+<span class="type">SoupSession</span> automatically handles responses from the
+server that redirect to another URL. If you would like to handle these
+yourself, you can set the <a class="link" href="SoupMessage.html#SOUP-MESSAGE-NO-REDIRECT:CAPS"><code class="literal">SOUP_MESSAGE_NO_REDIRECT</code></a>
+flag.
+</p>
+
+<div class="refsect3">
+<a name="id-1.2.3.6.8"></a><h4>Sending a Message Synchronously</h4>
+
+
+<p>
+To send a message and wait for the response, use <a class="link" href="SoupSession.html#soup-session-send" title="soup_session_send ()"><code class="function">soup_session_send</code></a>:
+</p>
+
+<div class="informalexample">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1
+2
+3
+4</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="n">GInputStream</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">;</span><span class="w"></span>
+<span class="n">GError</span><span class="w"> </span><span class="o">*</span><span class="n">error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">stream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">soup_session_send</span><span class="w"> </span><span class="p">(</span><span class="n">session</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="p">,</span><span class="w"> </span><span class="n">cancellable</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">error</span><span class="p">);</span><span class="w"></span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<p>
+At the point when <code class="function">soup_session_send</code> returns, the
+request will have been sent, and the response headers read back in;
+you can examine the message's <em class="structfield"><code>status_code</code></em>,
+<em class="structfield"><code>reason_phrase</code></em>, and
+<em class="structfield"><code>response_headers</code></em> fields to see the response
+metadata. To get the response body, read from the returned <a class="link" href=""><span class="type">GInputStream</span></a>, and close it
+when you are done.
+</p>
+
+<p>
+Note that <code class="function">soup_session_send</code> only returns an error
+if a transport-level problem occurs (eg, it could not connect to the
+host, or the request was cancelled). Use the message's
+<em class="structfield"><code>status_code</code></em> field to determine whether the
+request was successful or not at the HTTP level (ie, "<code class="literal">200
+OK</code>" vs "<code class="literal">401 Bad Request</code>").
+</p>
+
+<p>
+If you would prefer to have <span class="application">libsoup</span> gather
+the response body for you and then return it all at once, you can use
+the older
+<a class="link" href="SoupSession.html#soup-session-send-message" title="soup_session_send_message ()"><code class="function">soup_session_send_message</code></a>
+API:
+</p>
+
+<div class="informalexample">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1
+2
+3</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="n">guint</span><span class="w"> </span><span class="n">status</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">soup_session_send_message</span><span class="w"> </span><span class="p">(</span><span class="n">session</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="p">);</span><span class="w"></span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<p>
+In this case, the response body will be available in the message's
+<em class="structfield"><code>response_body</code></em> field, and transport-level
+errors will be indicated in the <em class="structfield"><code>status_code</code></em>
+field via special pseudo-HTTP-status codes like <a class="link" href="libsoup-2.4-soup-status.html#SOUP-STATUS-CANT-CONNECT:CAPS"><code class="literal">SOUP_STATUS_CANT_CONNECT</code></a>.
+</p>
+
+</div>
+
+<div class="refsect3">
+<a name="id-1.2.3.6.9"></a><h4>Sending a Message Asynchronously</h4>
+
+
+<p>
+To send a message asynchronously, use <a class="link" href="SoupSession.html#soup-session-send-async" title="soup_session_send_async ()"><code class="function">soup_session_send_async</code></a>:
+</p>
+
+<div class="informalexample">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="p">...</span><span class="w"></span>
+<span class="w">	</span><span class="n">soup_session_send_async</span><span class="w"> </span><span class="p">(</span><span class="n">session</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="p">,</span><span class="w"> </span><span class="n">cancellable</span><span class="p">,</span><span class="w"> </span><span class="n">my_callback</span><span class="p">,</span><span class="w"> </span><span class="n">my_callback_data</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="p">...</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"></span>
+<span class="n">my_callback</span><span class="w"> </span><span class="p">(</span><span class="n">GObject</span><span class="w"> </span><span class="o">*</span><span class="n">object</span><span class="p">,</span><span class="w"> </span><span class="n">GAsyncResult</span><span class="w"> </span><span class="o">*</span><span class="n">result</span><span class="p">,</span><span class="w"> </span><span class="n">gpointer</span><span class="w"> </span><span class="n">user_data</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="n">GInputStream</span><span class="w"> </span><span class="o">*</span><span class="n">stream</span><span class="p">;</span><span class="w"></span>
+<span class="w">	</span><span class="n">GError</span><span class="w"> </span><span class="o">*</span><span class="n">error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">	</span><span class="n">stream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">soup_session_send_finish</span><span class="w"> </span><span class="p">(</span><span class="n">SOUP_SESSION</span><span class="w"> </span><span class="p">(</span><span class="n">object</span><span class="p">),</span><span class="w"> </span><span class="n">result</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">error</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="p">...</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<p>
+The message will be added to the session's queue, and eventually (when
+control is returned back to the main loop), it will be sent and the
+response will be read. When the message has been sent, and its
+headers received, the callback will be invoked, in the standard
+<a class="link" href=""><span class="type">GAsyncReadyCallback</span></a>
+style.
+</p>
+
+<p>
+As with synchronous sending, there is also an alternate API, <a class="link" href="SoupSession.html#soup-session-queue-message" title="soup_session_queue_message ()"><code class="function">soup_session_queue_message</code></a>,
+in which your callback is not invoked until the response has been
+completely read:
+</p>
+
+<div class="informalexample">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="p">...</span><span class="w"></span>
+<span class="w">	</span><span class="n">soup_session_queue_message</span><span class="w"> </span><span class="p">(</span><span class="n">session</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="p">,</span><span class="w"> </span><span class="n">my_callback</span><span class="p">,</span><span class="w"> </span><span class="n">my_callback_data</span><span class="p">);</span><span class="w"></span>
+<span class="w">	</span><span class="p">...</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"></span>
+<span class="n">my_callback</span><span class="w"> </span><span class="p">(</span><span class="n">SoupSession</span><span class="w"> </span><span class="o">*</span><span class="n">session</span><span class="p">,</span><span class="w"> </span><span class="n">SoupMessage</span><span class="w"> </span><span class="o">*</span><span class="n">msg</span><span class="p">,</span><span class="w"> </span><span class="n">gpointer</span><span class="w"> </span><span class="n">user_data</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">	</span><span class="cm">/* msg-&gt;response_body contains the response */</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<p>
+<a class="link" href="SoupSession.html#soup-session-queue-message" title="soup_session_queue_message ()"><code class="function">soup_session_queue_message</code></a>
+is slightly unusual in that it steals a reference to the message
+object, and unrefs it after the last callback is invoked on it. So
+when using this API, you should not unref the message yourself.
+</p>
+
+</div>
+
+</div>
+
+<div class="refsect2">
+<a name="id-1.2.3.7"></a><h3>Processing the Response</h3>
+
+
+<p>
+Once you have received the initial response from the server,
+synchronously or asynchronously, streaming or not, you can look at the
+response fields in the <code class="literal">SoupMessage</code> to decide what
+to do next. The <em class="structfield"><code>status_code</code></em> and
+<em class="structfield"><code>reason_phrase</code></em> fields contain the numeric
+status and textual status response from the server.
+<em class="structfield"><code>response_headers</code></em> contains the response
+headers, which you can investigate using <a class="link" href=""><code class="function">soup_message_headers_get</code></a>
+and <a class="link" href="SoupMessageHeaders.html#soup-message-headers-foreach" title="soup_message_headers_foreach ()"><code class="function">soup_message_headers_foreach</code></a>.
+</p>
+
+<p>
+<a class="link" href="SoupMessageHeaders.html" title="SoupMessageHeaders"><span class="type">SoupMessageHeaders</span></a>
+automatically parses several important headers in
+<em class="structfield"><code>response_headers</code></em> for you and provides
+specialized accessors for them. Eg, <a class="link" href="SoupMessageHeaders.html#soup-message-headers-get-content-type" title="soup_message_headers_get_content_type ()"><code class="function">soup_message_headers_get_content_type</code></a>.
+There are several generic methods such as <a class="link" href="libsoup-2.4-Soup-Miscellaneous-Utilities.html#soup-header-parse-param-list" title="soup_header_parse_param_list ()"><code class="function">soup_header_parse_param_list</code></a>
+(for parsing an attribute-list-type header) and <a class="link" href="libsoup-2.4-Soup-Miscellaneous-Utilities.html#soup-header-contains" title="soup_header_contains ()"><code class="function">soup_header_contains</code></a>
+(for quickly testing if a list-type header contains a particular
+token). These handle the various syntactical oddities of parsing HTTP
+headers much better than functions like
+<code class="function">g_strsplit</code> or <code class="function">strstr</code>.
+</p>
+
+</div>
+
+<div class="refsect2">
+<a name="id-1.2.3.8"></a><h3>Handling Authentication</h3>
+
+
+<p>
+<span class="type">SoupSession</span> handles most of the details of HTTP
+authentication for you. If it receives a 401 ("Unauthorized") or 407
+("Proxy Authentication Required") response, the session will emit the
+<a class="link" href="SoupSession.html#SoupSession-authenticate" title="The “authenticate” signal">authenticate</a> signal,
+providing you with a <a class="link" href="SoupAuth.html" title="SoupAuth"><span class="type">SoupAuth</span></a> object indicating the
+authentication type ("Basic", "Digest", or "NTLM") and the realm name
+provided by the server. If you have a username and password available
+(or can generate one), call <a class="link" href="SoupAuth.html#soup-auth-authenticate" title="soup_auth_authenticate ()"><code class="function">soup_auth_authenticate</code></a>
+to give the information to libsoup. The session will automatically
+requeue the message and try it again with that authentication
+information. (If you don't call
+<code class="function">soup_auth_authenticate</code>, the session will just
+return the message to the application with its 401 or 407 status.)
+</p>
+
+<p>
+If the server doesn't accept the username and password provided, the
+session will emit <a class="link" href="SoupSession.html#SoupSession-authenticate" title="The “authenticate” signal">authenticate</a> again, with the
+<code class="literal">retrying</code> parameter set to <code class="literal">TRUE</code>. This lets the
+application know that the information it provided earlier was
+incorrect, and gives it a chance to try again. If this
+username/password pair also doesn't work, the session will contine to
+emit <code class="literal">authenticate</code> again and again until the
+provided username/password successfully authenticates, or until the
+signal handler fails to call <a class="link" href="SoupAuth.html#soup-auth-authenticate" title="soup_auth_authenticate ()"><code class="function">soup_auth_authenticate</code></a>,
+at which point <span class="application">libsoup</span> will allow the
+message to fail (with status 401 or 407).
+</p>
+
+<p>
+If you need to handle authentication asynchronously (eg, to pop up a
+password dialog without recursively entering the main loop), you can
+do that as well. Just call <a class="link" href="SoupSession.html#soup-session-pause-message" title="soup_session_pause_message ()"><code class="function">soup_session_pause_message</code></a>
+on the message before returning from the signal handler, and
+<code class="function">g_object_ref</code> the <span class="type">SoupAuth</span>. Then,
+later on, after calling <code class="function">soup_auth_authenticate</code>
+(or deciding not to), call <a class="link" href="SoupSession.html#soup-session-unpause-message" title="soup_session_unpause_message ()"><code class="function">soup_session_unpause_message</code></a>
+to resume the paused message.
+</p>
+
+<p>
+By default, NTLM authentication is not enabled. To add NTLM support to
+a session, call:
+</p>
+
+<div class="informalexample">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="n">soup_session_add_feature_by_type</span><span class="w"> </span><span class="p">(</span><span class="n">session</span><span class="p">,</span><span class="w"> </span><span class="n">SOUP_TYPE_AUTH_NTLM</span><span class="p">);</span><span class="w"></span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<p>
+(You can also disable Basic or Digest authentication by calling <a class="link" href="SoupSession.html#soup-session-remove-feature-by-type" title="soup_session_remove_feature_by_type ()"><code class="function">soup_session_remove_feature_by_type</code></a>
+on <a class="link" href="SoupAuth.html#SOUP-TYPE-AUTH-BASIC:CAPS" title="SOUP_TYPE_AUTH_BASIC"><code class="literal">SOUP_TYPE_AUTH_BASIC</code></a>
+or <a class="link" href="SoupAuth.html#SOUP-TYPE-AUTH-DIGEST:CAPS" title="SOUP_TYPE_AUTH_DIGEST"><code class="literal">SOUP_TYPE_AUTH_DIGEST</code></a>.)
+</p>
+
+</div>
+
+<div class="refsect2">
+<a name="id-1.2.3.9"></a><h3>Multi-threaded usage</h3>
+
+
+<p>
+A <a class="link" href="SoupSession.html" title="SoupSession"><span class="type">SoupSession</span></a> can be
+used from multiple threads. However, if you are using the async APIs,
+then each thread you use the session from must have its own
+thread-default <a class="link" href=""><span class="type">GMainContext</span></a>.
+</p>
+
+<p>
+<a class="link" href="SoupMessage.html" title="SoupMessage"><span class="type">SoupMessage</span></a> is
+<span class="emphasis"><em>not</em></span> thread-safe, so once you send a message on
+the session, you must not interact with it from any thread other than
+the one where it was sent.
+</p>
+
+</div>
+
+<div class="refsect2">
+<a name="id-1.2.3.10"></a><h3>Sample Programs</h3>
+
+
+<p>
+A few sample programs are available in the
+<span class="application">libsoup</span> sources, in the
+<code class="literal">examples</code> directory:
+</p>
+
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
+<li class="listitem"><p>
+	<span class="bold"><strong><code class="literal">get</code></strong></span> is a simple command-line
+	HTTP GET utility using the asynchronous API.
+    </p></li>
+<li class="listitem"><p>
+	<span class="bold"><strong><code class="literal">simple-proxy</code></strong></span> uses both the
+	client and server APIs to create a simple (and not very
+	RFC-compliant) proxy server. It shows how to use the <a class="link" href="SoupMessage.html#SoupMessageFlags" title="enum SoupMessageFlags"><code class="literal">SOUP_MESSAGE_OVERWRITE_CHUNKS</code></a>
+	flag when reading a message to save memory by processing each
+	chunk of the message as it is read, rather than accumulating
+	them all into a single buffer to process all at the end.
+    </p></li>
+</ul></div>
+
+<p>
+More complicated examples are available in GNOME git.
+</p>
+
+</div>
+
+</div>
+<div class="footer">
+<hr>Generated by GTK-Doc V1.33.1</div>
+</body>
+</html>

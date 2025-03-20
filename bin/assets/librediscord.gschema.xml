@@ -1,0 +1,66 @@
+<schemalist>
+  <schema id="net.librediscord" path="/">
+    <key name="selected-account" type="s">
+      <default>""</default>
+    </key>
+
+    <key name="audio-api" type="s">
+      <default>"unspecified"</default>
+    </key>
+    <key name="audio-input-device" type="s">
+      <default>"system"</default>
+    </key>
+    <key name="audio-output-device" type="s">
+      <default>"system"</default>
+    </key>
+    <key name="buffer-size" type="u">
+      <default>0</default>
+    </key>
+
+    <key name="stereo-mode" type="s">
+      <default>"S"</default>
+    </key>
+    <key name="monitor" type="b">
+      <default>false</default>
+    </key>
+
+    <key name="noisegate-enable" type="b">
+      <default>false</default>
+    </key>
+    <key name="noisegate-threshold" type="d">
+      <default>-10.0</default>
+    </key>
+    <key name="noisegate-hold" type="d">
+      <default>0.250</default>
+    </key>
+    <key name="noisegate-decay" type="d">
+      <default>0.1</default>
+    </key>
+
+    <key name="compressor-enable" type="b">
+      <default>false</default>
+    </key>
+    <key name="compressor-gain" type="d">
+      <default>0.0</default>
+    </key>
+    <key name="compressor-threshold" type="d">
+      <default>0.0</default>
+    </key>
+    <key name="compressor-ratio" type="d">
+      <default>0.0</default>
+    </key>
+    <key name="compressor-attack" type="d">
+      <default>0.0</default>
+    </key>
+    <key name="compressor-release" type="d">
+      <default>0.0</default>
+    </key>
+
+    <key name="bitrate" type="u">
+      <default>96000</default>
+    </key>
+    <key name="frame-size" type="u">
+      <default>960</default>
+    </key>
+  </schema>
+</schemalist>

@@ -1,0 +1,25 @@
+undershoot {
+	background-repeat: no-repeat;
+	background-clip: border-box;
+	&.top {
+		background-image: linear-gradient(to bottom, gtkalpha(currentColor, 0.5), gtkalpha(currentColor, 0.2), gtkalpha(currentColor, 0));
+		background-size: 100% 1em;
+		background-position: top;
+	}
+	&.bottom {
+		background-image: linear-gradient(to top, gtkalpha(currentColor, 0.5), gtkalpha(currentColor, 0.2), gtkalpha(currentColor, 0));
+		background-size: 100% 1em;
+		background-position: bottom;
+	}
+	&.left {
+		background-image: linear-gradient(to right, gtkalpha(currentColor, 0.5), gtkalpha(currentColor, 0.2), gtkalpha(currentColor, 0));
+		background-size: 1em 100%;
+		background-position: left;	
+	}
+	&.right {
+		background-image: linear-gradient(to left, gtkalpha(currentColor, 0.5), gtkalpha(currentColor, 0.2), gtkalpha(currentColor, 0));
+		background-size: 1em 100%;
+		background-position: right;	
+	}
+	
+}

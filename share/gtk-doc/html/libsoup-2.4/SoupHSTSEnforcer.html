@@ -1,0 +1,1239 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>SoupHSTSEnforcer: libsoup Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.2">
+<link rel="home" href="index.html" title="libsoup Reference Manual">
+<link rel="up" href="ch03.html" title="Additional Features">
+<link rel="prev" href="SoupCookieJarDB.html" title="SoupCookieJarDB">
+<link rel="next" href="SoupHSTSEnforcerDB.html" title="SoupHSTSEnforcerDB">
+<meta name="generator" content="GTK-Doc V1.33.1 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts"></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="ch03.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="SoupCookieJarDB.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="SoupHSTSEnforcerDB.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry">
+<a name="SoupHSTSEnforcer"></a><div class="titlepage"></div>
+
+<div class="refnamediv">
+<h2><span class="refentrytitle"><a name="SoupHSTSEnforcer.top_of_page"></a>SoupHSTSEnforcer</span></h2>
+<p>
+SoupHSTSEnforcer
+ — Automatic HTTP Strict Transport Security enforcing
+for <a class="link" href="SoupSession.html" title="SoupSession"><span class="type">SoupSession</span></a>
+</p>
+</div>
+
+<div class="refsect1">
+<a name="SoupHSTSEnforcer.functions"></a><h2>Functions</h2>
+
+<div class="informaltable">
+<table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
+</colgroup>
+<tbody>
+<tr>
+<td class="function_type">
+<a class="link" href="SoupHSTSEnforcer.html" title="SoupHSTSEnforcer"><span class="returnvalue">SoupHSTSEnforcer</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="SoupHSTSEnforcer.html#soup-hsts-enforcer-new" title="soup_hsts_enforcer_new ()">soup_hsts_enforcer_new</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href=""><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="SoupHSTSEnforcer.html#soup-hsts-enforcer-is-persistent" title="soup_hsts_enforcer_is_persistent ()">soup_hsts_enforcer_is_persistent</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href=""><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="SoupHSTSEnforcer.html#soup-hsts-enforcer-has-valid-policy" title="soup_hsts_enforcer_has_valid_policy ()">soup_hsts_enforcer_has_valid_policy</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href=""><span class="returnvalue">void</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="SoupHSTSEnforcer.html#soup-hsts-enforcer-set-policy" title="soup_hsts_enforcer_set_policy ()">soup_hsts_enforcer_set_policy</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href=""><span class="returnvalue">void</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="SoupHSTSEnforcer.html#soup-hsts-enforcer-set-session-policy" title="soup_hsts_enforcer_set_session_policy ()">soup_hsts_enforcer_set_session_policy</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href=""><span class="returnvalue">GList</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="SoupHSTSEnforcer.html#soup-hsts-enforcer-get-domains" title="soup_hsts_enforcer_get_domains ()">soup_hsts_enforcer_get_domains</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href=""><span class="returnvalue">GList</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="SoupHSTSEnforcer.html#soup-hsts-enforcer-get-policies" title="soup_hsts_enforcer_get_policies ()">soup_hsts_enforcer_get_policies</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="SoupHSTSEnforcer.html#SoupHSTSPolicy"><span class="returnvalue">SoupHSTSPolicy</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="SoupHSTSEnforcer.html#soup-hsts-policy-new" title="soup_hsts_policy_new ()">soup_hsts_policy_new</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="SoupHSTSEnforcer.html#SoupHSTSPolicy"><span class="returnvalue">SoupHSTSPolicy</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="SoupHSTSEnforcer.html#soup-hsts-policy-new-full" title="soup_hsts_policy_new_full ()">soup_hsts_policy_new_full</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="SoupHSTSEnforcer.html#SoupHSTSPolicy"><span class="returnvalue">SoupHSTSPolicy</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="SoupHSTSEnforcer.html#soup-hsts-policy-new-from-response" title="soup_hsts_policy_new_from_response ()">soup_hsts_policy_new_from_response</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href="SoupHSTSEnforcer.html#SoupHSTSPolicy"><span class="returnvalue">SoupHSTSPolicy</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="SoupHSTSEnforcer.html#soup-hsts-policy-copy" title="soup_hsts_policy_copy ()">soup_hsts_policy_copy</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href=""><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="SoupHSTSEnforcer.html#soup-hsts-policy-equal" title="soup_hsts_policy_equal ()">soup_hsts_policy_equal</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href=""><span class="returnvalue">void</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="SoupHSTSEnforcer.html#soup-hsts-policy-free" title="soup_hsts_policy_free ()">soup_hsts_policy_free</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">const <a class="link" href=""><span class="returnvalue">char</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="SoupHSTSEnforcer.html#soup-hsts-policy-get-domain" title="soup_hsts_policy_get_domain ()">soup_hsts_policy_get_domain</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href=""><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="SoupHSTSEnforcer.html#soup-hsts-policy-is-expired" title="soup_hsts_policy_is_expired ()">soup_hsts_policy_is_expired</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href=""><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="SoupHSTSEnforcer.html#soup-hsts-policy-includes-subdomains" title="soup_hsts_policy_includes_subdomains ()">soup_hsts_policy_includes_subdomains</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<a class="link" href=""><span class="returnvalue">gboolean</span></a>
+</td>
+<td class="function_name">
+<a class="link" href="SoupHSTSEnforcer.html#soup-hsts-policy-is-session-policy" title="soup_hsts_policy_is_session_policy ()">soup_hsts_policy_is_session_policy</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="refsect1">
+<a name="SoupHSTSEnforcer.signals"></a><h2>Signals</h2>
+
+<div class="informaltable">
+<table class="informaltable" border="0">
+<colgroup>
+<col width="150px" class="signal_proto_type">
+<col width="300px" class="signal_proto_name">
+<col width="200px" class="signal_proto_flags">
+</colgroup>
+<tbody>
+<tr>
+<td class="signal_type"><a class="link" href=""><span class="returnvalue">void</span></a></td>
+<td class="signal_name"><a class="link" href="SoupHSTSEnforcer.html#SoupHSTSEnforcer-changed" title="The “changed” signal">changed</a></td>
+<td class="signal_flags"><a class="link" href="">Run First</a></td>
+</tr>
+<tr>
+<td class="signal_type"><a class="link" href=""><span class="returnvalue">void</span></a></td>
+<td class="signal_name"><a class="link" href="SoupHSTSEnforcer.html#SoupHSTSEnforcer-hsts-enforced" title="The “hsts-enforced” signal">hsts-enforced</a></td>
+<td class="signal_flags"><a class="link" href="">Run First</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<a name="SoupHSTSPolicy"></a><div class="refsect1">
+<a name="SoupHSTSEnforcer.other"></a><h2>Types and Values</h2>
+
+<div class="informaltable">
+<table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
+</colgroup>
+<tbody>
+<tr>
+<td class="datatype_keyword"> </td>
+<td class="function_name"><a class="link" href="SoupHSTSEnforcer.html#SoupHSTSEnforcer-struct" title="SoupHSTSEnforcer">SoupHSTSEnforcer</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword"> </td>
+<td class="function_name"><a class="link" href="SoupHSTSEnforcer.html#SoupHSTSEnforcerClass" title="SoupHSTSEnforcerClass">SoupHSTSEnforcerClass</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword"> </td>
+<td class="function_name"><a class="link" href="SoupHSTSEnforcer.html#SoupHSTSPolicy-struct" title="SoupHSTSPolicy">SoupHSTSPolicy</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="SoupHSTSEnforcer.html#SOUP-HSTS-POLICY-MAX-AGE-PAST:CAPS" title="SOUP_HSTS_POLICY_MAX_AGE_PAST">SOUP_HSTS_POLICY_MAX_AGE_PAST</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="refsect1">
+<a name="SoupHSTSEnforcer.object-hierarchy"></a><h2>Object Hierarchy</h2>
+
+<pre class="screen">    <a class="link" href="">GBoxed</a>
+    <span class="lineart">╰──</span> SoupHSTSPolicy
+    <a class="link" href="">GObject</a>
+    <span class="lineart">╰──</span> SoupHSTSEnforcer
+        <span class="lineart">╰──</span> <a class="link" href="SoupHSTSEnforcerDB.html" title="SoupHSTSEnforcerDB">SoupHSTSEnforcerDB</a>
+</pre>
+</div>
+<div class="refsect1">
+<a name="SoupHSTSEnforcer.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+
+<p>
+SoupHSTSEnforcer implements
+ <a class="link" href="SoupSessionFeature.html" title="SoupSessionFeature">SoupSessionFeature</a>.</p>
+
+</div>
+
+<div class="refsect1">
+<a name="SoupHSTSEnforcer.includes"></a><h2>Includes</h2>
+<pre class="synopsis">#include &lt;libsoup/soup.h&gt;
+</pre>
+</div>
+
+<div class="refsect1">
+<a name="SoupHSTSEnforcer.description"></a><h2>Description</h2>
+
+<p>A <a class="link" href="SoupHSTSEnforcer.html" title="SoupHSTSEnforcer"><span class="type">SoupHSTSEnforcer</span></a> stores HSTS policies and enforces them when
+required. <a class="link" href="SoupHSTSEnforcer.html" title="SoupHSTSEnforcer"><span class="type">SoupHSTSEnforcer</span></a> implements <a class="link" href="SoupSessionFeature.html" title="SoupSessionFeature"><span class="type">SoupSessionFeature</span></a>, so you
+can add an HSTS enforcer to a session with
+<a class="link" href="SoupSession.html#soup-session-add-feature" title="soup_session_add_feature ()"><code class="function">soup_session_add_feature()</code></a> or <a class="link" href="SoupSession.html#soup-session-add-feature-by-type" title="soup_session_add_feature_by_type ()"><code class="function">soup_session_add_feature_by_type()</code></a>.</p>
+<p><a class="link" href="SoupHSTSEnforcer.html" title="SoupHSTSEnforcer"><span class="type">SoupHSTSEnforcer</span></a> keeps track of all the HTTPS destinations that,
+when connected to, return the Strict-Transport-Security header with
+valid values. <a class="link" href="SoupHSTSEnforcer.html" title="SoupHSTSEnforcer"><span class="type">SoupHSTSEnforcer</span></a> will forget those destinations
+upon expiry or when the server requests it.</p>
+<p>When the <a class="link" href="SoupSession.html" title="SoupSession"><span class="type">SoupSession</span></a> the <a class="link" href="SoupHSTSEnforcer.html" title="SoupHSTSEnforcer"><span class="type">SoupHSTSEnforcer</span></a> is attached to queues
+or restarts a message, the <a class="link" href="SoupHSTSEnforcer.html" title="SoupHSTSEnforcer"><span class="type">SoupHSTSEnforcer</span></a> will rewrite the URI
+to HTTPS if the destination is a known HSTS host and is contacted
+over an insecure transport protocol (HTTP). Users of
+<a class="link" href="SoupHSTSEnforcer.html" title="SoupHSTSEnforcer"><span class="type">SoupHSTSEnforcer</span></a> are advised to listen to changes in
+SoupMessage:uri in order to be aware of changes in the message URI.</p>
+<p>Note that <a class="link" href="SoupHSTSEnforcer.html" title="SoupHSTSEnforcer"><span class="type">SoupHSTSEnforcer</span></a> does not support any form of long-term
+HSTS policy persistence. See <a class="link" href=""><span class="type">SoupHSTSDBEnforcer</span></a> for a persistent
+enforcer.</p>
+
+</div>
+<div class="refsect1">
+<a name="SoupHSTSEnforcer.functions_details"></a><h2>Functions</h2>
+
+<div class="refsect2">
+<a name="soup-hsts-enforcer-new"></a><h3>soup_hsts_enforcer_new ()</h3>
+
+<a class="indexterm" name="id-1.4.9.11.2.2"></a>
+<pre class="programlisting"><a class="link" href="SoupHSTSEnforcer.html" title="SoupHSTSEnforcer"><span class="returnvalue">SoupHSTSEnforcer</span></a> *
+soup_hsts_enforcer_new (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>Creates a new <a class="link" href="SoupHSTSEnforcer.html" title="SoupHSTSEnforcer"><span class="type">SoupHSTSEnforcer</span></a>. The base <a class="link" href="SoupHSTSEnforcer.html" title="SoupHSTSEnforcer"><span class="type">SoupHSTSEnforcer</span></a> class
+does not support persistent storage of HSTS policies, see
+<a class="link" href="SoupHSTSEnforcerDB.html" title="SoupHSTSEnforcerDB"><span class="type">SoupHSTSEnforcerDB</span></a> for that.</p>
+<div class="refsect3">
+<a name="soup-hsts-enforcer-new.returns"></a><h4>Returns</h4>
+
+<p> a new <a class="link" href="SoupHSTSEnforcer.html" title="SoupHSTSEnforcer"><span class="type">SoupHSTSEnforcer</span></a></p>
+</div>
+<p class="since">Since: <a class="link" href="">2.68</a></p>
+</div>
+<div class="refsect2">
+<a name="soup-hsts-enforcer-is-persistent"></a><h3>soup_hsts_enforcer_is_persistent ()</h3>
+
+<a class="indexterm" name="id-1.4.9.11.3.2"></a>
+<pre class="programlisting"><a class="link" href=""><span class="returnvalue">gboolean</span></a>
+soup_hsts_enforcer_is_persistent (<em class="parameter"><code><a class="link" href="SoupHSTSEnforcer.html" title="SoupHSTSEnforcer"><span class="type">SoupHSTSEnforcer</span></a> *hsts_enforcer</code></em>);</pre>
+<p>Gets whether <em class="parameter"><code>hsts_enforcer</code></em>
+ stores policies persistenly.</p>
+<div class="refsect3">
+<a name="soup-hsts-enforcer-is-persistent.parameters"></a><h4>Parameters</h4>
+
+<div class="informaltable">
+<table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>hsts_enforcer</p></td>
+<td class="parameter_description"><p>a <a class="link" href="SoupHSTSEnforcer.html" title="SoupHSTSEnforcer"><span class="type">SoupHSTSEnforcer</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div class="refsect3">
+<a name="soup-hsts-enforcer-is-persistent.returns"></a><h4>Returns</h4>
+
+<p> <a class="link" href=""><code class="literal">TRUE</code></a> if <em class="parameter"><code>hsts_enforcer</code></em>
+storage is persistent or <a class="link" href=""><code class="literal">FALSE</code></a> otherwise.</p>
+</div>
+<p class="since">Since: <a class="link" href="">2.68</a></p>
+</div>
+<div class="refsect2">
+<a name="soup-hsts-enforcer-has-valid-policy"></a><h3>soup_hsts_enforcer_has_valid_policy ()</h3>
+
+<a class="indexterm" name="id-1.4.9.11.4.2"></a>
+<pre class="programlisting"><a class="link" href=""><span class="returnvalue">gboolean</span></a>
+soup_hsts_enforcer_has_valid_policy (<em class="parameter"><code><a class="link" href="SoupHSTSEnforcer.html" title="SoupHSTSEnforcer"><span class="type">SoupHSTSEnforcer</span></a> *hsts_enforcer</code></em>,
+                                     <em class="parameter"><code>const <a class="link" href=""><span class="type">char</span></a> *domain</code></em>);</pre>
+<p>Gets whether <em class="parameter"><code>hsts_enforcer</code></em>
+ has a currently valid policy for <em class="parameter"><code>domain</code></em>
+.</p>
+<div class="refsect3">
+<a name="soup-hsts-enforcer-has-valid-policy.parameters"></a><h4>Parameters</h4>
+
+<div class="informaltable">
+<table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>hsts_enforcer</p></td>
+<td class="parameter_description"><p>a <a class="link" href="SoupHSTSEnforcer.html" title="SoupHSTSEnforcer"><span class="type">SoupHSTSEnforcer</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>domain</p></td>
+<td class="parameter_description"><p>a domain.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="refsect3">
+<a name="soup-hsts-enforcer-has-valid-policy.returns"></a><h4>Returns</h4>
+
+<p> <a class="link" href=""><code class="literal">TRUE</code></a> if access to <em class="parameter"><code>domain</code></em>
+should happen over HTTPS, false
+otherwise.</p>
+</div>
+<p class="since">Since: <a class="link" href="">2.68</a></p>
+</div>
+<div class="refsect2">
+<a name="soup-hsts-enforcer-set-policy"></a><h3>soup_hsts_enforcer_set_policy ()</h3>
+
+<a class="indexterm" name="id-1.4.9.11.5.2"></a>
+<pre class="programlisting"><a class="link" href=""><span class="returnvalue">void</span></a>
+soup_hsts_enforcer_set_policy (<em class="parameter"><code><a class="link" href="SoupHSTSEnforcer.html" title="SoupHSTSEnforcer"><span class="type">SoupHSTSEnforcer</span></a> *hsts_enforcer</code></em>,
+                               <em class="parameter"><code><a class="link" href="SoupHSTSEnforcer.html#SoupHSTSPolicy"><span class="type">SoupHSTSPolicy</span></a> *policy</code></em>);</pre>
+<p>Sets <em class="parameter"><code>policy</code></em>
+ to <em class="parameter"><code>hsts_enforcer</code></em>
+. If <em class="parameter"><code>policy</code></em>
+ is expired, any
+existing HSTS policy for its host will be removed instead. If a
+policy existed for this host, it will be replaced. Otherwise, the
+new policy will be inserted. If the policy is a session policy, that
+is, one created with <a class="link" href=""><code class="function">soup_hsts_policy_new_session_policy()</code></a>, the policy
+will not expire and will be enforced during the lifetime of
+<em class="parameter"><code>hsts_enforcer</code></em>
+'s <a class="link" href="SoupSession.html" title="SoupSession"><span class="type">SoupSession</span></a>.</p>
+<div class="refsect3">
+<a name="soup-hsts-enforcer-set-policy.parameters"></a><h4>Parameters</h4>
+
+<div class="informaltable">
+<table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>hsts_enforcer</p></td>
+<td class="parameter_description"><p>a <a class="link" href="SoupHSTSEnforcer.html" title="SoupHSTSEnforcer"><span class="type">SoupHSTSEnforcer</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>policy</p></td>
+<td class="parameter_description"><p>the policy of the HSTS host. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym class="acronym">transfer none</acronym>]</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p class="since">Since: <a class="link" href="">2.68</a></p>
+</div>
+<div class="refsect2">
+<a name="soup-hsts-enforcer-set-session-policy"></a><h3>soup_hsts_enforcer_set_session_policy ()</h3>
+
+<a class="indexterm" name="id-1.4.9.11.6.2"></a>
+<pre class="programlisting"><a class="link" href=""><span class="returnvalue">void</span></a>
+soup_hsts_enforcer_set_session_policy (<em class="parameter"><code><a class="link" href="SoupHSTSEnforcer.html" title="SoupHSTSEnforcer"><span class="type">SoupHSTSEnforcer</span></a> *hsts_enforcer</code></em>,
+                                       <em class="parameter"><code>const <a class="link" href=""><span class="type">char</span></a> *domain</code></em>,
+                                       <em class="parameter"><code><a class="link" href=""><span class="type">gboolean</span></a> include_subdomains</code></em>);</pre>
+<p>Sets a session policy for <em class="parameter"><code>domain</code></em>
+. A session policy is a policy
+that is permanent to the lifetime of <em class="parameter"><code>hsts_enforcer</code></em>
+'s <a class="link" href="SoupSession.html" title="SoupSession"><span class="type">SoupSession</span></a>
+and doesn't expire.</p>
+<div class="refsect3">
+<a name="soup-hsts-enforcer-set-session-policy.parameters"></a><h4>Parameters</h4>
+
+<div class="informaltable">
+<table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>hsts_enforcer</p></td>
+<td class="parameter_description"><p>a <a class="link" href="SoupHSTSEnforcer.html" title="SoupHSTSEnforcer"><span class="type">SoupHSTSEnforcer</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>domain</p></td>
+<td class="parameter_description"><p>policy domain or hostname</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>include_subdomains</p></td>
+<td class="parameter_description"><p><a class="link" href=""><code class="literal">TRUE</code></a> if the policy applies on sub domains</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p class="since">Since: <a class="link" href="">2.68</a></p>
+</div>
+<div class="refsect2">
+<a name="soup-hsts-enforcer-get-domains"></a><h3>soup_hsts_enforcer_get_domains ()</h3>
+
+<a class="indexterm" name="id-1.4.9.11.7.2"></a>
+<pre class="programlisting"><a class="link" href=""><span class="returnvalue">GList</span></a> *
+soup_hsts_enforcer_get_domains (<em class="parameter"><code><a class="link" href="SoupHSTSEnforcer.html" title="SoupHSTSEnforcer"><span class="type">SoupHSTSEnforcer</span></a> *hsts_enforcer</code></em>,
+                                <em class="parameter"><code><a class="link" href=""><span class="type">gboolean</span></a> session_policies</code></em>);</pre>
+<p>Gets a list of domains for which there are policies in <em class="parameter"><code>enforcer</code></em>
+.</p>
+<div class="refsect3">
+<a name="soup-hsts-enforcer-get-domains.parameters"></a><h4>Parameters</h4>
+
+<div class="informaltable">
+<table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>hsts_enforcer</p></td>
+<td class="parameter_description"><p>a <a class="link" href="SoupHSTSEnforcer.html" title="SoupHSTSEnforcer"><span class="type">SoupHSTSEnforcer</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>session_policies</p></td>
+<td class="parameter_description"><p>whether to include session policies</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="refsect3">
+<a name="soup-hsts-enforcer-get-domains.returns"></a><h4>Returns</h4>
+
+<p>a newly allocated
+list of domains. Use <a class="link" href=""><code class="function">g_list_free_full()</code></a> and <a class="link" href=""><code class="function">g_free()</code></a> to free the
+list. </p>
+<p><span class="annotation">[<acronym class="acronym">element-type</acronym> utf8][<acronym class="acronym">transfer full</acronym>]</span></p>
+</div>
+<p class="since">Since: <a class="link" href="">2.68</a></p>
+</div>
+<div class="refsect2">
+<a name="soup-hsts-enforcer-get-policies"></a><h3>soup_hsts_enforcer_get_policies ()</h3>
+
+<a class="indexterm" name="id-1.4.9.11.8.2"></a>
+<pre class="programlisting"><a class="link" href=""><span class="returnvalue">GList</span></a> *
+soup_hsts_enforcer_get_policies (<em class="parameter"><code><a class="link" href="SoupHSTSEnforcer.html" title="SoupHSTSEnforcer"><span class="type">SoupHSTSEnforcer</span></a> *hsts_enforcer</code></em>,
+                                 <em class="parameter"><code><a class="link" href=""><span class="type">gboolean</span></a> session_policies</code></em>);</pre>
+<p>Gets a list with the policies in <em class="parameter"><code>enforcer</code></em>
+.</p>
+<div class="refsect3">
+<a name="soup-hsts-enforcer-get-policies.parameters"></a><h4>Parameters</h4>
+
+<div class="informaltable">
+<table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>hsts_enforcer</p></td>
+<td class="parameter_description"><p>a <a class="link" href="SoupHSTSEnforcer.html" title="SoupHSTSEnforcer"><span class="type">SoupHSTSEnforcer</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>session_policies</p></td>
+<td class="parameter_description"><p>whether to include session policies</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="refsect3">
+<a name="soup-hsts-enforcer-get-policies.returns"></a><h4>Returns</h4>
+
+<p>a newly
+allocated list of policies. Use <a class="link" href=""><code class="function">g_list_free_full()</code></a> and
+<a class="link" href="SoupHSTSEnforcer.html#soup-hsts-policy-free" title="soup_hsts_policy_free ()"><code class="function">soup_hsts_policy_free()</code></a> to free the list. </p>
+<p><span class="annotation">[<acronym class="acronym">element-type</acronym> SoupHSTSPolicy][<acronym class="acronym">transfer full</acronym>]</span></p>
+</div>
+<p class="since">Since: <a class="link" href="">2.68</a></p>
+</div>
+<div class="refsect2">
+<a name="soup-hsts-policy-new"></a><h3>soup_hsts_policy_new ()</h3>
+
+<a class="indexterm" name="id-1.4.9.11.9.2"></a>
+<pre class="programlisting"><a class="link" href="SoupHSTSEnforcer.html#SoupHSTSPolicy"><span class="returnvalue">SoupHSTSPolicy</span></a> *
+soup_hsts_policy_new (<em class="parameter"><code>const <a class="link" href=""><span class="type">char</span></a> *domain</code></em>,
+                      <em class="parameter"><code><span class="type">unsigned long </span> max_age</code></em>,
+                      <em class="parameter"><code><a class="link" href=""><span class="type">gboolean</span></a> include_subdomains</code></em>);</pre>
+<p>Creates a new <a class="link" href="SoupHSTSEnforcer.html#SoupHSTSPolicy"><span class="type">SoupHSTSPolicy</span></a> with the given attributes.</p>
+<p><em class="parameter"><code>domain</code></em>
+ is a domain on which the strict transport security policy
+represented by this object must be enforced.</p>
+<p><em class="parameter"><code>max_age</code></em>
+ is used to set the "expires" attribute on the policy; pass
+SOUP_HSTS_POLICY_MAX_AGE_PAST for an already-expired policy, or a
+lifetime in seconds.</p>
+<p>If <em class="parameter"><code>include_subdomains</code></em>
+ is <a class="link" href=""><code class="literal">TRUE</code></a>, the strict transport security policy
+must also be enforced on all subdomains of <em class="parameter"><code>domain</code></em>
+.</p>
+<div class="refsect3">
+<a name="soup-hsts-policy-new.parameters"></a><h4>Parameters</h4>
+
+<div class="informaltable">
+<table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>domain</p></td>
+<td class="parameter_description"><p>policy domain or hostname</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>max_age</p></td>
+<td class="parameter_description"><p>max age of the policy</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>include_subdomains</p></td>
+<td class="parameter_description"><p><a class="link" href=""><code class="literal">TRUE</code></a> if the policy applies on subdomains</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="refsect3">
+<a name="soup-hsts-policy-new.returns"></a><h4>Returns</h4>
+
+<p> a new <a class="link" href="SoupHSTSEnforcer.html#SoupHSTSPolicy"><span class="type">SoupHSTSPolicy</span></a>.</p>
+</div>
+<p class="since">Since: <a class="link" href="">2.68</a></p>
+</div>
+<div class="refsect2">
+<a name="soup-hsts-policy-new-full"></a><h3>soup_hsts_policy_new_full ()</h3>
+
+<a class="indexterm" name="id-1.4.9.11.10.2"></a>
+<pre class="programlisting"><a class="link" href="SoupHSTSEnforcer.html#SoupHSTSPolicy"><span class="returnvalue">SoupHSTSPolicy</span></a> *
+soup_hsts_policy_new_full (<em class="parameter"><code>const <a class="link" href=""><span class="type">char</span></a> *domain</code></em>,
+                           <em class="parameter"><code><span class="type">unsigned long </span> max_age</code></em>,
+                           <em class="parameter"><code><a class="link" href="libsoup-2.4-Soup-Miscellaneous-Utilities.html#SoupDate"><span class="type">SoupDate</span></a> *expires</code></em>,
+                           <em class="parameter"><code><a class="link" href=""><span class="type">gboolean</span></a> include_subdomains</code></em>);</pre>
+<p>Full version of <a class="link" href="SoupHSTSEnforcer.html#soup-hsts-policy-new" title="soup_hsts_policy_new ()"><code class="function">soup_hsts_policy_new()</code></a>, to use with an existing
+expiration date. See <a class="link" href="SoupHSTSEnforcer.html#soup-hsts-policy-new" title="soup_hsts_policy_new ()"><code class="function">soup_hsts_policy_new()</code></a> for details.</p>
+<div class="refsect3">
+<a name="soup-hsts-policy-new-full.parameters"></a><h4>Parameters</h4>
+
+<div class="informaltable">
+<table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>domain</p></td>
+<td class="parameter_description"><p>policy domain or hostname</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>max_age</p></td>
+<td class="parameter_description"><p>max age of the policy</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>expires</p></td>
+<td class="parameter_description"><p>the date of expiration of the policy or <a class="link" href=""><code class="literal">NULL</code></a> for a permanent policy</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>include_subdomains</p></td>
+<td class="parameter_description"><p><a class="link" href=""><code class="literal">TRUE</code></a> if the policy applies on subdomains</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="refsect3">
+<a name="soup-hsts-policy-new-full.returns"></a><h4>Returns</h4>
+
+<p> a new <a class="link" href="SoupHSTSEnforcer.html#SoupHSTSPolicy"><span class="type">SoupHSTSPolicy</span></a>.</p>
+</div>
+<p class="since">Since: <a class="link" href="">2.68</a></p>
+</div>
+<div class="refsect2">
+<a name="soup-hsts-policy-new-from-response"></a><h3>soup_hsts_policy_new_from_response ()</h3>
+
+<a class="indexterm" name="id-1.4.9.11.11.2"></a>
+<pre class="programlisting"><a class="link" href="SoupHSTSEnforcer.html#SoupHSTSPolicy"><span class="returnvalue">SoupHSTSPolicy</span></a> *
+soup_hsts_policy_new_from_response (<em class="parameter"><code><a class="link" href="SoupMessage.html" title="SoupMessage"><span class="type">SoupMessage</span></a> *msg</code></em>);</pre>
+<p>Parses <em class="parameter"><code>msg</code></em>
+'s first "Strict-Transport-Security" response header and
+returns a <a class="link" href="SoupHSTSEnforcer.html#SoupHSTSPolicy"><span class="type">SoupHSTSPolicy</span></a>.</p>
+<div class="refsect3">
+<a name="soup-hsts-policy-new-from-response.parameters"></a><h4>Parameters</h4>
+
+<div class="informaltable">
+<table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>msg</p></td>
+<td class="parameter_description"><p>a <a class="link" href="SoupMessage.html" title="SoupMessage"><span class="type">SoupMessage</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div class="refsect3">
+<a name="soup-hsts-policy-new-from-response.returns"></a><h4>Returns</h4>
+
+<p>a new <a class="link" href="SoupHSTSEnforcer.html#SoupHSTSPolicy"><span class="type">SoupHSTSPolicy</span></a>, or <a class="link" href=""><code class="literal">NULL</code></a> if no valid
+"Strict-Transport-Security" response header was found. </p>
+<p><span class="annotation">[<acronym class="acronym">nullable</acronym>]</span></p>
+</div>
+<p class="since">Since: <a class="link" href="">2.68</a></p>
+</div>
+<div class="refsect2">
+<a name="soup-hsts-policy-copy"></a><h3>soup_hsts_policy_copy ()</h3>
+
+<a class="indexterm" name="id-1.4.9.11.12.2"></a>
+<pre class="programlisting"><a class="link" href="SoupHSTSEnforcer.html#SoupHSTSPolicy"><span class="returnvalue">SoupHSTSPolicy</span></a> *
+soup_hsts_policy_copy (<em class="parameter"><code><a class="link" href="SoupHSTSEnforcer.html#SoupHSTSPolicy"><span class="type">SoupHSTSPolicy</span></a> *policy</code></em>);</pre>
+<p>Copies <em class="parameter"><code>policy</code></em>
+.</p>
+<div class="refsect3">
+<a name="soup-hsts-policy-copy.parameters"></a><h4>Parameters</h4>
+
+<div class="informaltable">
+<table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>policy</p></td>
+<td class="parameter_description"><p>a <a class="link" href="SoupHSTSEnforcer.html#SoupHSTSPolicy"><span class="type">SoupHSTSPolicy</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div class="refsect3">
+<a name="soup-hsts-policy-copy.returns"></a><h4>Returns</h4>
+
+<p>a copy of <em class="parameter"><code>policy</code></em>
+. </p>
+<p><span class="annotation">[<acronym class="acronym">transfer full</acronym>]</span></p>
+</div>
+<p class="since">Since: <a class="link" href="">2.68</a></p>
+</div>
+<div class="refsect2">
+<a name="soup-hsts-policy-equal"></a><h3>soup_hsts_policy_equal ()</h3>
+
+<a class="indexterm" name="id-1.4.9.11.13.2"></a>
+<pre class="programlisting"><a class="link" href=""><span class="returnvalue">gboolean</span></a>
+soup_hsts_policy_equal (<em class="parameter"><code><a class="link" href="SoupHSTSEnforcer.html#SoupHSTSPolicy"><span class="type">SoupHSTSPolicy</span></a> *policy1</code></em>,
+                        <em class="parameter"><code><a class="link" href="SoupHSTSEnforcer.html#SoupHSTSPolicy"><span class="type">SoupHSTSPolicy</span></a> *policy2</code></em>);</pre>
+<p>Tests if <em class="parameter"><code>policy1</code></em>
+ and <em class="parameter"><code>policy2</code></em>
+ are equal.</p>
+<div class="refsect3">
+<a name="soup-hsts-policy-equal.parameters"></a><h4>Parameters</h4>
+
+<div class="informaltable">
+<table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>policy1</p></td>
+<td class="parameter_description"><p>a <a class="link" href="SoupHSTSEnforcer.html#SoupHSTSPolicy"><span class="type">SoupHSTSPolicy</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>policy2</p></td>
+<td class="parameter_description"><p>a <a class="link" href="SoupHSTSEnforcer.html#SoupHSTSPolicy"><span class="type">SoupHSTSPolicy</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="refsect3">
+<a name="soup-hsts-policy-equal.returns"></a><h4>Returns</h4>
+
+<p> whether the policies are equal.</p>
+</div>
+<p class="since">Since: <a class="link" href="">2.68</a></p>
+</div>
+<div class="refsect2">
+<a name="soup-hsts-policy-free"></a><h3>soup_hsts_policy_free ()</h3>
+
+<a class="indexterm" name="id-1.4.9.11.14.2"></a>
+<pre class="programlisting"><a class="link" href=""><span class="returnvalue">void</span></a>
+soup_hsts_policy_free (<em class="parameter"><code><a class="link" href="SoupHSTSEnforcer.html#SoupHSTSPolicy"><span class="type">SoupHSTSPolicy</span></a> *policy</code></em>);</pre>
+<p>Frees <em class="parameter"><code>policy</code></em>
+.</p>
+<div class="refsect3">
+<a name="soup-hsts-policy-free.parameters"></a><h4>Parameters</h4>
+
+<div class="informaltable">
+<table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>policy</p></td>
+<td class="parameter_description"><p>a <a class="link" href="SoupHSTSEnforcer.html#SoupHSTSPolicy"><span class="type">SoupHSTSPolicy</span></a>. </p></td>
+<td class="parameter_annotations"><span class="annotation">[<acronym class="acronym">transfer full</acronym>]</span></td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<p class="since">Since: <a class="link" href="">2.68</a></p>
+</div>
+<div class="refsect2">
+<a name="soup-hsts-policy-get-domain"></a><h3>soup_hsts_policy_get_domain ()</h3>
+
+<a class="indexterm" name="id-1.4.9.11.15.2"></a>
+<pre class="programlisting">const <a class="link" href=""><span class="returnvalue">char</span></a> *
+soup_hsts_policy_get_domain (<em class="parameter"><code><a class="link" href="SoupHSTSEnforcer.html#SoupHSTSPolicy"><span class="type">SoupHSTSPolicy</span></a> *policy</code></em>);</pre>
+<p>Gets <em class="parameter"><code>policy</code></em>
+'s domain.</p>
+<div class="refsect3">
+<a name="soup-hsts-policy-get-domain.parameters"></a><h4>Parameters</h4>
+
+<div class="informaltable">
+<table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>policy</p></td>
+<td class="parameter_description"><p>a <a class="link" href="SoupHSTSEnforcer.html#SoupHSTSPolicy"><span class="type">SoupHSTSPolicy</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div class="refsect3">
+<a name="soup-hsts-policy-get-domain.returns"></a><h4>Returns</h4>
+
+<p><em class="parameter"><code>policy</code></em>
+'s domain. </p>
+<p><span class="annotation">[<acronym class="acronym">transfer none</acronym>]</span></p>
+</div>
+<p class="since">Since: <a class="link" href="">2.68</a></p>
+</div>
+<div class="refsect2">
+<a name="soup-hsts-policy-is-expired"></a><h3>soup_hsts_policy_is_expired ()</h3>
+
+<a class="indexterm" name="id-1.4.9.11.16.2"></a>
+<pre class="programlisting"><a class="link" href=""><span class="returnvalue">gboolean</span></a>
+soup_hsts_policy_is_expired (<em class="parameter"><code><a class="link" href="SoupHSTSEnforcer.html#SoupHSTSPolicy"><span class="type">SoupHSTSPolicy</span></a> *policy</code></em>);</pre>
+<p>Gets whether <em class="parameter"><code>policy</code></em>
+ is expired. Permanent policies never
+expire.</p>
+<div class="refsect3">
+<a name="soup-hsts-policy-is-expired.parameters"></a><h4>Parameters</h4>
+
+<div class="informaltable">
+<table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>policy</p></td>
+<td class="parameter_description"><p>a <a class="link" href="SoupHSTSEnforcer.html#SoupHSTSPolicy"><span class="type">SoupHSTSPolicy</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div class="refsect3">
+<a name="soup-hsts-policy-is-expired.returns"></a><h4>Returns</h4>
+
+<p> <a class="link" href=""><code class="literal">TRUE</code></a> if <em class="parameter"><code>policy</code></em>
+is expired, <a class="link" href=""><code class="literal">FALSE</code></a> otherwise.</p>
+</div>
+<p class="since">Since: <a class="link" href="">2.68</a></p>
+</div>
+<div class="refsect2">
+<a name="soup-hsts-policy-includes-subdomains"></a><h3>soup_hsts_policy_includes_subdomains ()</h3>
+
+<a class="indexterm" name="id-1.4.9.11.17.2"></a>
+<pre class="programlisting"><a class="link" href=""><span class="returnvalue">gboolean</span></a>
+soup_hsts_policy_includes_subdomains (<em class="parameter"><code><a class="link" href="SoupHSTSEnforcer.html#SoupHSTSPolicy"><span class="type">SoupHSTSPolicy</span></a> *policy</code></em>);</pre>
+<p>Gets whether <em class="parameter"><code>policy</code></em>
+ include its subdomains.</p>
+<div class="refsect3">
+<a name="soup-hsts-policy-includes-subdomains.parameters"></a><h4>Parameters</h4>
+
+<div class="informaltable">
+<table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>policy</p></td>
+<td class="parameter_description"><p>a <a class="link" href="SoupHSTSEnforcer.html#SoupHSTSPolicy"><span class="type">SoupHSTSPolicy</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div class="refsect3">
+<a name="soup-hsts-policy-includes-subdomains.returns"></a><h4>Returns</h4>
+
+<p> <a class="link" href=""><code class="literal">TRUE</code></a> if <em class="parameter"><code>policy</code></em>
+includes subdomains, <a class="link" href=""><code class="literal">FALSE</code></a> otherwise.</p>
+</div>
+<p class="since">Since: <a class="link" href="">2.68</a></p>
+</div>
+<div class="refsect2">
+<a name="soup-hsts-policy-is-session-policy"></a><h3>soup_hsts_policy_is_session_policy ()</h3>
+
+<a class="indexterm" name="id-1.4.9.11.18.2"></a>
+<pre class="programlisting"><a class="link" href=""><span class="returnvalue">gboolean</span></a>
+soup_hsts_policy_is_session_policy (<em class="parameter"><code><a class="link" href="SoupHSTSEnforcer.html#SoupHSTSPolicy"><span class="type">SoupHSTSPolicy</span></a> *policy</code></em>);</pre>
+<p>Gets whether <em class="parameter"><code>policy</code></em>
+ is a non-permanent, non-expirable session policy.
+see <a class="link" href=""><code class="function">soup_hsts_policy_new_session_policy()</code></a> for details.</p>
+<div class="refsect3">
+<a name="soup-hsts-policy-is-session-policy.parameters"></a><h4>Parameters</h4>
+
+<div class="informaltable">
+<table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>policy</p></td>
+<td class="parameter_description"><p>a <a class="link" href="SoupHSTSEnforcer.html#SoupHSTSPolicy"><span class="type">SoupHSTSPolicy</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div class="refsect3">
+<a name="soup-hsts-policy-is-session-policy.returns"></a><h4>Returns</h4>
+
+<p> <a class="link" href=""><code class="literal">TRUE</code></a> if <em class="parameter"><code>policy</code></em>
+is permanent, <a class="link" href=""><code class="literal">FALSE</code></a> otherwise</p>
+</div>
+<p class="since">Since: <a class="link" href="">2.68</a></p>
+</div>
+
+</div>
+<div class="refsect1">
+<a name="SoupHSTSEnforcer.other_details"></a><h2>Types and Values</h2>
+
+<div class="refsect2">
+<a name="SoupHSTSEnforcer-struct"></a><h3>SoupHSTSEnforcer</h3>
+
+<a class="indexterm" name="id-1.4.9.12.2.2"></a>
+<pre class="programlisting">typedef struct _SoupHSTSEnforcer SoupHSTSEnforcer;</pre>
+</div>
+<div class="refsect2">
+<a name="SoupHSTSEnforcerClass"></a><h3>SoupHSTSEnforcerClass</h3>
+
+<a class="indexterm" name="id-1.4.9.12.3.2"></a>
+<pre class="programlisting">typedef struct {
+	GObjectClass parent_class;
+
+	gboolean (*is_persistent) (SoupHSTSEnforcer *hsts_enforcer);
+	gboolean (*has_valid_policy) (SoupHSTSEnforcer *hsts_enforcer, const char *domain);
+
+	/* signals */
+	void (*changed) (SoupHSTSEnforcer *enforcer,
+			 SoupHSTSPolicy	  *old_policy,
+			 SoupHSTSPolicy	  *new_policy);
+
+	void (*hsts_enforced) (SoupHSTSEnforcer *enforcer,
+			       SoupMessage      *message);
+
+	/* Padding for future expansion */
+	void (*_libsoup_reserved1) (void);
+	void (*_libsoup_reserved2) (void);
+	void (*_libsoup_reserved3) (void);
+	void (*_libsoup_reserved4) (void);
+} SoupHSTSEnforcerClass;
+</pre>
+<div class="refsect3">
+<a name="SoupHSTSEnforcerClass.members"></a><h4>Members</h4>
+
+<div class="informaltable">
+<table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="300px" class="struct_members_name">
+<col class="struct_members_description">
+<col width="200px" class="struct_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="struct_member_name"><p><em class="structfield"><code><a name="SoupHSTSEnforcerClass.is-persistent"></a>is_persistent</code></em> ()</p></td>
+<td class="struct_member_description"><p>The <em class="parameter"><code>is_persistent</code></em>
+function advertises whether the enforcer is persistent or
+whether changes made to it will be lost when the underlying <a class="link" href="SoupSession.html" title="SoupSession"><span class="type">SoupSession</span></a> is finished.</p></td>
+<td class="struct_member_annotations"> </td>
+</tr>
+<tr>
+<td class="struct_member_name"><p><em class="structfield"><code><a name="SoupHSTSEnforcerClass.has-valid-policy"></a>has_valid_policy</code></em> ()</p></td>
+<td class="struct_member_description"><p>The <em class="parameter"><code>has_valid_policy</code></em>
+function is called to check whether there is a valid
+policy for the given domain. This method should return <a class="link" href=""><code class="literal">TRUE</code></a> for <a class="link" href="SoupHSTSEnforcer.html" title="SoupHSTSEnforcer"><span class="type">SoupHSTSEnforcer</span></a> to
+change the scheme of the <a class="link" href="SoupURI.html" title="SoupURI"><span class="type">SoupURI</span></a> in the <a class="link" href="SoupMessage.html" title="SoupMessage"><span class="type">SoupMessage</span></a> to HTTPS. Implementations might want to
+chain up to the <em class="parameter"><code>has_valid_policy</code></em>
+in the parent class to check, for instance, for runtime
+policies.</p></td>
+<td class="struct_member_annotations"> </td>
+</tr>
+<tr>
+<td class="struct_member_name"><p><em class="structfield"><code><a name="SoupHSTSEnforcerClass.changed"></a>changed</code></em> ()</p></td>
+<td class="struct_member_description"><p>the class closure for the <a class="link" href="SoupHSTSEnforcer.html#SoupHSTSEnforcer-changed" title="The “changed” signal"><span class="type">“changed”</span></a> signal.</p></td>
+<td class="struct_member_annotations"> </td>
+</tr>
+<tr>
+<td class="struct_member_name"><p><em class="structfield"><code><a name="SoupHSTSEnforcerClass.hsts-enforced"></a>hsts_enforced</code></em> ()</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="struct_member_name"><p><em class="structfield"><code><a name="SoupHSTSEnforcerClass.-libsoup-reserved1"></a>_libsoup_reserved1</code></em> ()</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="struct_member_name"><p><em class="structfield"><code><a name="SoupHSTSEnforcerClass.-libsoup-reserved2"></a>_libsoup_reserved2</code></em> ()</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="struct_member_name"><p><em class="structfield"><code><a name="SoupHSTSEnforcerClass.-libsoup-reserved3"></a>_libsoup_reserved3</code></em> ()</p></td>
+<td> </td>
+<td> </td>
+</tr>
+<tr>
+<td class="struct_member_name"><p><em class="structfield"><code><a name="SoupHSTSEnforcerClass.-libsoup-reserved4"></a>_libsoup_reserved4</code></em> ()</p></td>
+<td> </td>
+<td> </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="refsect2">
+<a name="SoupHSTSPolicy-struct"></a><h3>SoupHSTSPolicy</h3>
+
+<a class="indexterm" name="id-1.4.9.12.4.2"></a>
+<pre class="programlisting">typedef struct {
+	char                 *domain;
+	unsigned long         max_age;
+	SoupDate             *expires;
+	gboolean              include_subdomains;
+} SoupHSTSPolicy;
+</pre>
+<p>An HTTP Strict Transport Security policy.</p>
+<p><em class="parameter"><code>domain</code></em>
+ represents the host that this policy applies to. The domain
+must be IDNA-canonicalized. <a class="link" href="SoupHSTSEnforcer.html#soup-hsts-policy-new" title="soup_hsts_policy_new ()"><code class="function">soup_hsts_policy_new()</code></a> and related methods
+will do this for you.</p>
+<p><em class="parameter"><code>max_age</code></em>
+ contains the 'max-age' value from the Strict Transport
+Security header and indicates the time to live of this policy,
+in seconds.</p>
+<p><em class="parameter"><code>expires</code></em>
+ will be non-<a class="link" href=""><code class="literal">NULL</code></a> if the policy has been set by the host and
+hence has an expiry time. If <em class="parameter"><code>expires</code></em>
+ is <a class="link" href=""><code class="literal">NULL</code></a>, it indicates that the
+policy is a permanent session policy set by the user agent.</p>
+<p>If <em class="parameter"><code>include_subdomains</code></em>
+ is <a class="link" href=""><code class="literal">TRUE</code></a>, the Strict Transport Security policy
+must also be enforced on subdomains of <em class="parameter"><code>domain</code></em>
+.</p>
+<div class="refsect3">
+<a name="SoupHSTSPolicy.members"></a><h4>Members</h4>
+
+<div class="informaltable">
+<table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="300px" class="struct_members_name">
+<col class="struct_members_description">
+<col width="200px" class="struct_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="struct_member_name"><p><a class="link" href=""><span class="type">char</span></a> *<em class="structfield"><code><a name="SoupHSTSPolicy-struct.domain"></a>domain</code></em>;</p></td>
+<td class="struct_member_description"><p>The domain or hostname that the policy applies to</p></td>
+<td class="struct_member_annotations"> </td>
+</tr>
+<tr>
+<td class="struct_member_name"><p>unsigned <a class="link" href=""><span class="type">long</span></a> <em class="structfield"><code><a name="SoupHSTSPolicy-struct.max-age"></a>max_age</code></em>;</p></td>
+<td class="struct_member_description"><p>The maximum age, in seconds, that the policy is valid</p></td>
+<td class="struct_member_annotations"> </td>
+</tr>
+<tr>
+<td class="struct_member_name"><p><a class="link" href="libsoup-2.4-Soup-Miscellaneous-Utilities.html#SoupDate"><span class="type">SoupDate</span></a> *<em class="structfield"><code><a name="SoupHSTSPolicy-struct.expires"></a>expires</code></em>;</p></td>
+<td class="struct_member_description"><p>the policy expiration time, or <a class="link" href=""><code class="literal">NULL</code></a> for a permanent session policy</p></td>
+<td class="struct_member_annotations"> </td>
+</tr>
+<tr>
+<td class="struct_member_name"><p><a class="link" href=""><span class="type">gboolean</span></a> <em class="structfield"><code><a name="SoupHSTSPolicy-struct.include-subdomains"></a>include_subdomains</code></em>;</p></td>
+<td class="struct_member_description"><p><a class="link" href=""><code class="literal">TRUE</code></a> if the policy applies on subdomains</p></td>
+<td class="struct_member_annotations"> </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p class="since">Since: <a class="link" href="">2.68</a></p>
+</div>
+<div class="refsect2">
+<a name="SOUP-HSTS-POLICY-MAX-AGE-PAST:CAPS"></a><h3>SOUP_HSTS_POLICY_MAX_AGE_PAST</h3>
+
+<a class="indexterm" name="id-1.4.9.12.5.2"></a>
+<pre class="programlisting">#define SOUP_HSTS_POLICY_MAX_AGE_PAST (0)
+</pre>
+</div>
+
+</div>
+<div class="refsect1">
+<a name="SoupHSTSEnforcer.signal-details"></a><h2>Signal Details</h2>
+
+<div class="refsect2">
+<a name="SoupHSTSEnforcer-changed"></a><h3>The <code class="literal">“changed”</code> signal</h3>
+<a class="indexterm" name="id-1.4.9.13.2.2"></a>
+<pre class="programlisting"><a class="link" href=""><span class="returnvalue">void</span></a>
+user_function (<a class="link" href="SoupHSTSEnforcer.html" title="SoupHSTSEnforcer"><span class="type">SoupHSTSEnforcer</span></a> *hsts_enforcer,
+               <a class="link" href="SoupHSTSEnforcer.html#SoupHSTSPolicy"><span class="type">SoupHSTSPolicy</span></a>   *old_policy,
+               <a class="link" href="SoupHSTSEnforcer.html#SoupHSTSPolicy"><span class="type">SoupHSTSPolicy</span></a>   *new_policy,
+               <a class="link" href=""><span class="type">gpointer</span></a>          user_data)</pre>
+<p>Emitted when <em class="parameter"><code>hsts_enforcer</code></em>
+ changes. If a policy has been added,
+<em class="parameter"><code>new_policy</code></em>
+ will contain the newly-added policy and
+<em class="parameter"><code>old_policy</code></em>
+ will be <a class="link" href=""><code class="literal">NULL</code></a>. If a policy has been deleted,
+<em class="parameter"><code>old_policy</code></em>
+ will contain the to-be-deleted policy and
+<em class="parameter"><code>new_policy</code></em>
+ will be <a class="link" href=""><code class="literal">NULL</code></a>. If a policy has been changed,
+<em class="parameter"><code>old_policy</code></em>
+ will contain its old value, and <em class="parameter"><code>new_policy</code></em>
+ its
+new value.</p>
+<p>Note that you shouldn't modify the policies from a callback to
+this signal.</p>
+<div class="refsect3">
+<a name="SoupHSTSEnforcer-changed.parameters"></a><h4>Parameters</h4>
+
+<div class="informaltable">
+<table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>hsts_enforcer</p></td>
+<td class="parameter_description"><p>the <a class="link" href="SoupHSTSEnforcer.html" title="SoupHSTSEnforcer"><span class="type">SoupHSTSEnforcer</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>old_policy</p></td>
+<td class="parameter_description"><p>the old <a class="link" href="SoupHSTSEnforcer.html#SoupHSTSPolicy"><span class="type">SoupHSTSPolicy</span></a> value</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>new_policy</p></td>
+<td class="parameter_description"><p>the new <a class="link" href="SoupHSTSEnforcer.html#SoupHSTSPolicy"><span class="type">SoupHSTSPolicy</span></a> value</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Flags: <a class="link" href="">Run First</a></p>
+</div>
+<div class="refsect2">
+<a name="SoupHSTSEnforcer-hsts-enforced"></a><h3>The <code class="literal">“hsts-enforced”</code> signal</h3>
+<a class="indexterm" name="id-1.4.9.13.3.2"></a>
+<pre class="programlisting"><a class="link" href=""><span class="returnvalue">void</span></a>
+user_function (<a class="link" href="SoupHSTSEnforcer.html" title="SoupHSTSEnforcer"><span class="type">SoupHSTSEnforcer</span></a> *hsts_enforcer,
+               <a class="link" href="SoupMessage.html" title="SoupMessage"><span class="type">SoupMessage</span></a>      *message,
+               <a class="link" href=""><span class="type">gpointer</span></a>          user_data)</pre>
+<p>Emitted when <em class="parameter"><code>hsts_enforcer</code></em>
+ has upgraded the protocol
+for <em class="parameter"><code>message</code></em>
+ to HTTPS as a result of matching its domain with
+a HSTS policy.</p>
+<div class="refsect3">
+<a name="SoupHSTSEnforcer-hsts-enforced.parameters"></a><h4>Parameters</h4>
+
+<div class="informaltable">
+<table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="parameter_name"><p>hsts_enforcer</p></td>
+<td class="parameter_description"><p>the <a class="link" href="SoupHSTSEnforcer.html" title="SoupHSTSEnforcer"><span class="type">SoupHSTSEnforcer</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>message</p></td>
+<td class="parameter_description"><p>the message for which HSTS is being enforced</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+<tr>
+<td class="parameter_name"><p>user_data</p></td>
+<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
+<td class="parameter_annotations"> </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Flags: <a class="link" href="">Run First</a></p>
+</div>
+</div>
+
+</div>
+<div class="footer">
+<hr>Generated by GTK-Doc V1.33.1</div>
+</body>
+</html>

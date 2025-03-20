@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>SoupHSTSEnforcerDB: libsoup Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.2">
+<link rel="home" href="index.html" title="libsoup Reference Manual">
+<link rel="up" href="ch03.html" title="Additional Features">
+<link rel="prev" href="SoupHSTSEnforcer.html" title="SoupHSTSEnforcer">
+<link rel="next" href="SoupLogger.html" title="SoupLogger">
+<meta name="generator" content="GTK-Doc V1.33.1 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts"></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="ch03.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="SoupHSTSEnforcer.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="SoupLogger.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry">
+<a name="SoupHSTSEnforcerDB"></a><div class="titlepage"></div>
+
+<div class="refnamediv">
+<h2><span class="refentrytitle"><a name="SoupHSTSEnforcerDB.top_of_page"></a>SoupHSTSEnforcerDB</span></h2>
+<p>
+SoupHSTSEnforcerDB
+ — Persistent HTTP Strict Transport Security enforcer
+</p>
+</div>
+
+<div class="refsect1">
+<a name="SoupHSTSEnforcerDB.functions"></a><h2>Functions</h2>
+
+<div class="informaltable">
+<table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="functions_proto_type">
+<col class="functions_proto_name">
+</colgroup>
+<tbody><tr>
+<td class="function_type">
+<a class="link" href="SoupHSTSEnforcer.html" title="SoupHSTSEnforcer"><span class="returnvalue">SoupHSTSEnforcer</span></a> *
+</td>
+<td class="function_name">
+<a class="link" href="SoupHSTSEnforcerDB.html#soup-hsts-enforcer-db-new" title="soup_hsts_enforcer_db_new ()">soup_hsts_enforcer_db_new</a> <span class="c_punctuation">()</span>
+</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div class="refsect1">
+<a name="SoupHSTSEnforcerDB.properties"></a><h2>Properties</h2>
+
+<div class="informaltable">
+<table class="informaltable" border="0">
+<colgroup>
+<col width="150px" class="properties_type">
+<col width="300px" class="properties_name">
+<col width="200px" class="properties_flags">
+</colgroup>
+<tbody><tr>
+<td class="property_type">
+<a class="link" href=""><span class="type">char</span></a> *</td>
+<td class="property_name"><a class="link" href="SoupHSTSEnforcerDB.html#SoupHSTSEnforcerDB--filename" title="The “filename” property">filename</a></td>
+<td class="property_flags">Read / Write / Construct Only</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div class="refsect1">
+<a name="SoupHSTSEnforcerDB.other"></a><h2>Types and Values</h2>
+
+<div class="informaltable">
+<table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="other_proto_type">
+<col class="other_proto_name">
+</colgroup>
+<tbody><tr>
+<td class="datatype_keyword"> </td>
+<td class="function_name"><a class="link" href="SoupHSTSEnforcerDB.html#SoupHSTSEnforcerDB-struct" title="SoupHSTSEnforcerDB">SoupHSTSEnforcerDB</a></td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div class="refsect1">
+<a name="SoupHSTSEnforcerDB.object-hierarchy"></a><h2>Object Hierarchy</h2>
+
+<pre class="screen">    <a class="link" href="">GObject</a>
+    <span class="lineart">╰──</span> <a class="link" href="SoupHSTSEnforcer.html" title="SoupHSTSEnforcer">SoupHSTSEnforcer</a>
+        <span class="lineart">╰──</span> SoupHSTSEnforcerDB
+</pre>
+</div>
+<div class="refsect1">
+<a name="SoupHSTSEnforcerDB.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+
+<p>
+SoupHSTSEnforcerDB implements
+ <a class="link" href="SoupSessionFeature.html" title="SoupSessionFeature">SoupSessionFeature</a>.</p>
+
+</div>
+
+<div class="refsect1">
+<a name="SoupHSTSEnforcerDB.includes"></a><h2>Includes</h2>
+<pre class="synopsis">#include &lt;libsoup/soup.h&gt;
+</pre>
+</div>
+
+<div class="refsect1">
+<a name="SoupHSTSEnforcerDB.description"></a><h2>Description</h2>
+
+<p><a class="link" href="SoupHSTSEnforcerDB.html" title="SoupHSTSEnforcerDB"><span class="type">SoupHSTSEnforcerDB</span></a> is a <a class="link" href="SoupHSTSEnforcer.html" title="SoupHSTSEnforcer"><span class="type">SoupHSTSEnforcer</span></a> that uses a SQLite
+database as a backend for persistency.</p>
+
+</div>
+<div class="refsect1">
+<a name="SoupHSTSEnforcerDB.functions_details"></a><h2>Functions</h2>
+
+<div class="refsect2">
+<a name="soup-hsts-enforcer-db-new"></a><h3>soup_hsts_enforcer_db_new ()</h3>
+
+<a class="indexterm" name="id-1.4.10.10.2.2"></a>
+<pre class="programlisting"><a class="link" href="SoupHSTSEnforcer.html" title="SoupHSTSEnforcer"><span class="returnvalue">SoupHSTSEnforcer</span></a> *
+soup_hsts_enforcer_db_new (<em class="parameter"><code>const <a class="link" href=""><span class="type">char</span></a> *filename</code></em>);</pre>
+<p>Creates a <a class="link" href="SoupHSTSEnforcerDB.html" title="SoupHSTSEnforcerDB"><span class="type">SoupHSTSEnforcerDB</span></a>.</p>
+<p><em class="parameter"><code>filename</code></em>
+ will be read in during the initialization of a
+<a class="link" href="SoupHSTSEnforcerDB.html" title="SoupHSTSEnforcerDB"><span class="type">SoupHSTSEnforcerDB</span></a>, in order to create an initial set of HSTS
+policies. If the file doesn't exist, a new database will be created
+and initialized. Changes to the policies during the lifetime of a
+<a class="link" href="SoupHSTSEnforcerDB.html" title="SoupHSTSEnforcerDB"><span class="type">SoupHSTSEnforcerDB</span></a> will be written to <em class="parameter"><code>filename</code></em>
+ when
+<a class="link" href="SoupHSTSEnforcer.html#SoupHSTSEnforcer-changed" title="The “changed” signal"><span class="type">“changed”</span></a> is emitted.</p>
+<div class="refsect3">
+<a name="soup-hsts-enforcer-db-new.parameters"></a><h4>Parameters</h4>
+
+<div class="informaltable">
+<table class="informaltable" width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>filename</p></td>
+<td class="parameter_description"><p>the filename of the database to read/write from.</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div class="refsect3">
+<a name="soup-hsts-enforcer-db-new.returns"></a><h4>Returns</h4>
+
+<p> the new <a class="link" href="SoupHSTSEnforcer.html" title="SoupHSTSEnforcer"><span class="type">SoupHSTSEnforcer</span></a></p>
+</div>
+<p class="since">Since: <a class="link" href="">2.68</a></p>
+</div>
+
+</div>
+<div class="refsect1">
+<a name="SoupHSTSEnforcerDB.other_details"></a><h2>Types and Values</h2>
+
+<div class="refsect2">
+<a name="SoupHSTSEnforcerDB-struct"></a><h3>SoupHSTSEnforcerDB</h3>
+
+<a class="indexterm" name="id-1.4.10.11.2.2"></a>
+<pre class="programlisting">typedef struct _SoupHSTSEnforcerDB SoupHSTSEnforcerDB;</pre>
+</div>
+
+</div>
+<div class="refsect1">
+<a name="SoupHSTSEnforcerDB.property-details"></a><h2>Property Details</h2>
+
+<div class="refsect2">
+<a name="SoupHSTSEnforcerDB--filename"></a><h3>The <code class="literal">“filename”</code> property</h3>
+<a class="indexterm" name="id-1.4.10.12.2.2"></a>
+<pre class="programlisting">  “filename”                 <a class="link" href=""><span class="type">char</span></a> *</pre>
+<p>The filename of the SQLite database where HSTS policies are stored.</p>
+<p>Owner: SoupHSTSEnforcerDB</p>
+<p>Flags: Read / Write / Construct Only</p>
+<p>Default value: NULL</p>
+</div>
+
+</div>
+
+</div>
+<div class="footer">
+<hr>Generated by GTK-Doc V1.33.1</div>
+</body>
+</html>
