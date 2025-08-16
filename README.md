@@ -1,0 +1,1 @@
+boncuğun bildiği var
